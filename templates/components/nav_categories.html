@@ -1,0 +1,7 @@
+{% load custom_tags %}
+
+{% get_categories as categories %}
+{% for category in categories %}
+  <a class="nav-link" href="{% url 'main' %}?category={{ category.id }}">{{ category.name }}</a>
+{% endfor %} 
+<a class="nav-link" href="{% url 'workspace' %}">workspace</a>

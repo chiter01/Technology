@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+  {{pradact.name }}
+{% endblock title %}
+{% block content1 %}
+<div class="abu12">
+  {% for tag in pradact.category.all %}
+  <a href="#">{{ tag.name }}</a>
+  {% endfor %} 
+  <h6 class="text-center mb-4">{{ pradact.name }}</h6>
+  <div class="as">
+    <button class="minus">-39%</button>
+    <button class="minus1">Товар из рекламы</button>
+  </div>
+  <div class="ali2">
+  <p class="text-center1">
+    <img src="{% static 'img/image 2 (1).png' %}" class="w-75" alt="">
+  </p>
+
+  <p class="description">{{ pradact.description }}<br>{% for tag in pradact.tags.all %}
+    <a href="#">{{ tag.name }}</a> 
+  {% endfor %}</p>
+  <p class="content">{{ pradact.content }}</p>
+  <div class="den">
+    <img class="denimg" src="{% static 'img/Group 24.png' %}" alt="">
+    <div class="butto">
+      <button></button>
+      <p>В наличии</p>
+    </div>
+    <div class="geniyabu">
+      <p class="geniyabup">{{ pradact.price }}  ₽</p>
+      <h1>Рассрочка от 267 ₽/мес.</h1>
+      <button>Добавить в корзину</button>
+      <div class="al">
+        <img src="{% static 'svg/magazin.svg' %}"alt="">
+        <p><span>Самовывоз </span>завтра, <h2>бесплатно</h2></p>
+      </div>
+      <div class="al1">
+        <img src="{% static 'svg/mashina.svg' %}"alt="">
+        <p><span>Доставка </span>завтра</p>
+      </div>
+      <div class="adf">
+        <img src="{% static 'svg/serdsa.svg' %}"alt="">
+        <img src="{% static 'svg/bisnes.svg' %}"alt="">
+        <img src="{% static 'svg/kalakolchic.svg' %}"alt="">
+      </div>
+    </div>
+  </div>
+  </div>
+  
+</div>
+{% endblock content1 %}
+{% comment %}
+<p class="text-center">
+    <img src="{{ pradact.image.url }}" class="w-75" alt="">
+</p>
+<div class="ali2">
+
+<h1 class="text-center mb-4">{{ pradact.name }}</h1>
+  <p class="description">{{ pradact.description }}</p>
+<p class="content">{{ pradact.content }}</p>
+<p class="price">{{ pradact.price }} som</p>
+<p>
+    {% for tag in pradact.tags.all %}
+      <a href="#">{{ tag.name }}</a> /
+    {% endfor %}
+</p>
+</div>{% endcomment %}
+

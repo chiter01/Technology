@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% load custom_tags %}
+
+{% get_categories as categories %}
+
+{% block title %}
+  | Create Pradact
+{% endblock %}
+{% comment %}3){% endcomment %}
+
+{% block content %}
+  <h3 class="mb-4">Create pradact</h3>
+
+  <form action="{% url 'create_pradact' %}" method="POST" enctype="multipart/form-data" novalidate>
+    {% csrf_token %}
+
+    {{ form.as_p }}
+    <div>
+      <button type="submit" class="btn btn-success w-100">Create</button>
+    </div>
+  </form>
+{% endblock %}
+
+{% comment %} 2) {% endcomment %}
+{% comment %} {% block content %}
+
+    <h3 class="mb-4">Create pradact</h3>
+
+    <form action="{% url 'create_pradact' %}" method="POST" enctype="multipart/form-data" novalidate>
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+      {% for input in form %}
+
+        <div class="mb-4">
+            <label for="pradact_name">{{ input.label }}</label>
+            {{ input }}
+            {% for error in input.errors %}
+                <div class="text-danger mb-3">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        {% endfor %}
+
+        <div>
+            <button type="submit" class="btn btn-success w-100">Create</button>
+        </div>
+        
+
+    </form>
+
+{% endblock content %} {% endcomment %}
+{% comment %}1){% endcomment %}
+{% comment %}
+
+{% block content %}
+  <h3 class="mb-3">Create Pradact</h3>
+
+  <form action="{% url 'create_pradact' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="pradact_name">Название</label>
+      <input id="pradact_name" type="text" class="form-control" placeholder="Название" name="name" required />
+    </div>
+
+    <div class="mb-3">
+      <label for="">Изображение</label>
+      <input type="file" class="form-control" name="image" required />
+    </div>
+    <div class="mb-3">
+      <label for="pradact_price">price</label>
+      <input id="pradact_price" type="number" class="form-control" placeholder="сколка сом" name="price" required />
+    </div>
+    <div class="mb-3">
+      <label for="">Описание<br /></label>
+      <textarea name="description" class="form-control1" required rows="8" cols="100" placeholder="Описание"></textarea>
+    </div>
+    <div class="mb-4">
+      <label for="">Категории</label>
+      <select class="form-select" name="category" required>
+        <option selected disabled>Выберите категорию</option>
+        {% for category in categories %}
+          <option value="{{ category.id }}">{{ category.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="mb-4">
+      <label for="">Теги</label>
+      <select class="form-select" name="tags" multiple required>
+        <option disabled>Выберите несколько тегов</option>
+        {% for tag in tags %}
+          <option value="{{ tag.id }}">{{ tag.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="pradact_is_pub">Публичность</label>
+      <input id="pradact_is_pub" type="checkbox" name="is_published" />
+    </div>
+
+    <div>
+      <button type="submit" class="btn btn-success w-100">Create</button>
+    </div>
+  </form>
+{% endblock %} {% endcomment %}

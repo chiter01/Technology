@@ -1,0 +1,134 @@
+{% load static %}
+
+{% comment %} <section class="top-nav">
+    <div>
+      Logo Here
+    </div>
+    <input id="menu-toggle" type="checkbox" />
+    <label class='menu-button-container' for="menu-toggle">
+    <div class='menu-button'></div>
+  </label>
+    <ul class="menu">
+        {% load custom_tags %}
+        {% get_categories as categories %}
+        {% for category in categories %}
+        <li><a class="nav-link" href="{% url 'main' %}?category={{ category.id }}">{{ category.name }}</a></li>
+        
+        {% endfor %}
+      
+    </ul>
+  </section>  {% endcomment %}
+
+  {% comment %} {% load custom_tags %}
+
+  {% get_categories as categories %}
+ <nav class="nav">
+    <div class="containe">
+        <img class="brand"  src="{% static 'img/IMAGE (7).png' %}" href="{% url 'main' %}" alt="">
+        <div class="collapse">
+            <ul class="ulnav">
+                {% include 'components/nav_categories.html' %}
+            </ul>
+            <form action="{% url 'main' %}" class="form" role="search">
+                <input class="form-control" value="{{ request.GET.search }}" name="search" type="search" placeholder="Search" aria-label="Search">
+                <button class="success" type="submit">Search</button>
+            </form>
+        </div>
+        <div class="hamburger-menu">
+            <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+              <span></span>
+            </label>
+            <ul class="menu__box">
+                {% for category in categories %}
+                    <li><a class="menu__item" href="{% url 'main' %}?category={{ category.id }}">{{ category.name }}</a></li>
+                {% endfor %}
+            </ul>
+          </div>
+    <div>
+</nav>  {% endcomment %}
+
+{% comment %} <nav class="nav">
+    <div class="container">
+        <a href="{% url 'main' %}" class="brand">
+            <img src="{% static 'img/IMAGE (7).png' %}" alt="Логотип">
+        </a>
+        <label for="navbar-toggle" class="burger-menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <input type="checkbox" id="navbar-toggle">
+        <div class="collapse">
+            <ul class="ulnav">
+                {% include 'components/nav_categories.html' %}
+            </ul>
+            <form action="{% url 'main' %}" class="form" role="search">
+                <input class="form-control" value="{{ request.GET.search }}" name="search" type="search" placeholder="Поиск" aria-label="Поиск">
+                <button class="success" type="submit">Найти</button>
+            </form>
+        </div>
+    </div>
+</nav> {% endcomment %}
+
+<header >
+    <div class="header">
+        <nav class="menu">
+            <a href="#">О нас</a>
+            <a href="#">Магазины</a>
+            <a href="#">Оплата и доставка</a>
+            <a href="#">Статус заказа</a>
+            <a href="#">Возврат</a>
+            <a href="#">Контакты</a>
+        </nav>
+        <div class="headervectel">
+            <div class="vector3">
+                <img src="{% static 'img/Vector (3).png' %}" alt="">
+                <p>Москва</p>
+            </div>
+            <div class="vector4">
+                <img src="{% static 'img/Vector (4).png' %}" alt="">
+                <p>+7(812)834-84-88</p>
+            </div>
+        </div>    
+    </div>
+    <div class="header1">
+        <button class="katalog"><img src="{% static 'img/burger (1).png' %}" alt=""><p class="katalogp">КАТАЛОГ</p></button>
+        <form action="{% url 'main' %}" class="form" role="search" method="GET">
+            <div class="header_input">
+                <input class="formcontrol" value="{{ request.GET.search }}" name="search" type="search" placeholder="Поиск" aria-label="Поиск товара">
+                <img src="{% static 'svg/lupa.svg' %}" type="submit" alt="">
+            </div>
+        </form>
+        <div class="nenujnie">
+            <div class="izbrannoe">
+                <img src="{% static 'svg/serdsa.svg' %}"alt="">
+                <p>Избранное</p>
+            </div>
+            <div class="izbrannoe">
+                <img src="{% static 'svg/karzina.svg' %}"alt="">
+                <p>Корзина</p>
+            </div>
+            <div class="izbrannoe">
+                <img src="{% static 'svg/voyti.svg' %}"alt="">
+                <p>Войти</p>
+            </div>
+        </div>
+    </div>
+    <div class="hamburger-menu">
+        <label class="menu__btn" for="menu__toggle">
+          <span></span>
+        </label>
+        <ul class="menu__box">
+          <li><a class="menu__item" href="#">Главная</a></li>
+          <li><a class="menu__item" href="#">Проекты</a></li>
+          <li><a class="menu__item" href="#">Команда</a></li>
+          <li><a class="menu__item" href="#">Блог</a></li>
+          <li><a class="menu__item" href="#">Контакты</a></li>
+        </ul>
+      </div>
+    <div class="category">
+        {% include 'components/nav_categories.html' %}
+    </div>
+    
+</header>

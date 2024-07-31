@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load custom_tags %}
+{% block content %}
+    <div class="row">
+        <div class="abuimg">
+            <img class="abu" style="width: 1155px;" src="{% static 'img/Frame 1850.png' %}" alt="">
+            <img class="abul" src="{% static 'img/Frame 1946.png' %}" alt="">
+        </div>
+        
+        
+        <p class="abu_p" style="font-size: 25px; margin-left:40px; margin-bottom: 25px;">Популярные категории</p>
+        <div class="abucategory">
+            {% get_categories as categories %}
+            {% for category in categories %}
+                {% if category.id == 1 %}
+                    <div class="{{ category.name }}">
+                        <img class="abu" src="{% static 'img/image 3.png' %}" alt=""> 
+                        <a class="categorypopulyarny" href="{% url 'main' %}?category={{ category.id }}">{{ category.name }}</a>
+                    </div>
+                {% elif category.id == 2 %}
+                    <div class="{{ category.name }}">
+                        <img class="abu" src="{% static 'img/image 4 (2).png' %}" alt=""> 
+                        <a class="categorypopulyarny" href="{% url 'main' %}?category={{ category.id }}">{{ category.name }}</a>
+                    </div>
+                {% elif category.id == 3 %}
+                    <div class="{{ category.name }}">
+                        <img class="abu" src="{% static 'img/image 5.png' %}" alt=""> 
+                        <a class="categorypopulyarny" href="{% url 'main' %}?category={{ category.id }}">{{ category.name }}</a>
+                    </div>
+                {% elif category.id == 4 %}
+                    <div class="{{ category.name }}">
+                        <img class="abu" src="{% static 'img/image 6 (2).png' %}" alt=""> 
+                        <a class="categorypopulyarny" href="{% url 'main' %}?category={{ category.id }}">{{ category.name }}</a>
+                    </div>
+                {% elif category.id == 5 %}
+                    <div class="{{ category.name }}">
+                        <img class="abu" src="{% static 'img/image 7 (1).png' %}" alt=""> 
+                        <a class="categorypopulyarny" href="{% url 'main' %}?category={{ category.id }}">{{ category.name }}</a>
+                    </div>
+                {% elif category.id == 6 %}
+                    <div class="{{ category.name }}">
+                        <img class="abu" src="{% static 'img/image 8 (1).png' %}" alt=""> 
+                        <a class="categorypopulyarny" href="{% url 'main' %}?category={{ category.id }}">{{ category.name }}</a>
+                    </div>
+                {% endif %}
+            {% endfor %} 
+        </div>
+        <div class="list">
+            <h3>List of your news</h3>
+                <a href="{% url 'create_pradact' %}" class="l l1">Create news</a>
+        </div>
+        
+        <div class="cardverh1">
+            <div class="col-12 col-md-4 col-lg-3 mb-4">
+                <div class="h-100">
+                    <div class="card-body">
+                        <h3>Filter</h3>
+                    </div>
+                </div>
+            </div>
+            {% for item in pradact %}
+                <div class="card">
+                    <div class="cardverh">
+                        <img src="{{ item.image.url }}" class="card-img" alt="...">
+                        <p class="cardverhp">{{ item.name }}</p>
+                        {%  for tag in item.tags.all %}
+                                <a class="tagname" href="#">{{ tag.name }}</a> 
+                        {%  endfor %}
+                        <p class="cardverhp1">{{ item.price }} <span>som</span></p>
+                        <div class="ali4">
+                        <a href="{% url 'detail_pradact' id=item.id %}" class="primary"><button class="abu1">View</button></a>
+                            <a href="{% url 'ubdate_pradact' id=item.id %}" class="btn btn-warning">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </a>
+                            <a href="{% url 'delete_pradact' id=item.id %}" class="btn btn-danger">
+                                <i class="fa-solid fa-trash"></i>
+                            </a>
+                        </div>
+                        <div class="svgverh">
+                            <img class="svg" src="../static/svg/serdsa.svg"alt="">
+                            <img class="svg" src="../static/svg/bisnes.svg"alt="">
+                            <img class="svg" src="../static/svg/kalakolchic.svg"alt="">
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        {% if pradact.has_previous or pradact.has_next %}
+            <nav>
+                <div class="pagination">
+                    {% if pradact.has_previous %}
+                        <button class="page-item">
+                            <a class="page-link" style="color:black;" href="?page={{ pradact.previous_page_number }}">
+                                <i class="fa-solid fa-angle-left"></i>
+                            </a>
+                        </button>
+                    {% endif %}
+                    {% for i in pradact.paginator.page_range %}
+                        {% if pradact.number == i %}
+                            <button class="page-item active">
+                                <span class="page-link" style="color:black;">{{ i }}</span>
+                            </button>
+                        {% else %}
+                            <button class="page-item">
+                                <a style="color:black;" class="page-link" href="?page={{ i }}">{{ i }}</a>
+                            </button>
+                        {% endif %}
+                    {% endfor %}
+                    {% if pradact.has_next %}
+                        <button class="page-item">
+                            <a class="page-link" href="?page={{ pradact.next_page_number }}">
+                                <i class="fa-solid fa-angle-right"></i>
+                            </a>
+                        </button>
+                    {% endif %}
+                </div>
+            </nav>
+        {% endif %}
+
+    </div>
+{% endblock content %}

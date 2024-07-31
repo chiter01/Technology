@@ -1,0 +1,1082 @@
+*{
+    text-decoration:none;
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+.header{
+    padding-top:25px;
+    display:flex;   
+    margin-bottom: 35px;
+}
+.headervectel{
+    display:flex;
+    gap:20px;
+    margin-left:73px;
+}
+.vector4{
+    width:150px;
+    display:flex;
+    gap:10px
+}
+.vector3{
+    display:flex;
+    gap:10px
+}
+.vector3 img{
+    width: 12.25px;
+    height: 17.5px;
+}
+.vector4 img{
+    width: 18px;
+    height: 17px;
+}
+.menu{
+    display:flex;
+    margin-left:348px;
+}
+
+nav{
+    display:flex;
+    gap:30px;
+}
+nav a{
+    color:#2A1F20;
+    font-size: 14px;
+}
+.katalog{
+    width: 144px;
+    height: 46px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+    border-radius: 5px;
+    background: #FB0F40;
+    border:none;
+    padding-left: 20px;
+    padding-right: 20px;
+    color:#ffffff
+}
+.formcontrol{
+    background: #F4F4F4;
+    width: 621px;
+    height: 46px;
+    padding: 14px 15.5px 14px 15px;
+    border-radius: 5px;
+    margin-top:2px;
+    border:none;  
+}
+.category a{
+    color: #2A1F20;
+}
+.category {
+    display: flex;
+    gap: 27px;
+    margin-left:281px;
+}
+header{
+    margin-bottom:45px;
+}
+.header_input{
+    background: #F4F4F4;
+    width: 621px;
+    height: 46px;
+    position:relative;
+    border-radius: 5px;
+}
+.header_input img{
+    position: absolute;
+    right: 12px;
+    top: 12px;
+}
+.izbrannoe{
+    color: #2A1F20;
+    font-size:13px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+.nenujnie{
+    display:flex;
+    gap:25px;
+    margin-left:15px
+}
+.izbrannoe img{
+    display:flex;
+    justify-content:center;
+    width:20px;
+    margin: 0 auto;
+}
+.header1{
+    display:flex;
+    gap:25px;
+    margin-left:177px;
+    margin-bottom:25px;
+}
+.abu{
+    width: 1160px;
+    height: 346px;
+    margin-left: 40px;
+    margin-bottom: 60px;
+}
+.abuk {
+    width: 1120px;
+    height: 346px;
+}
+.abuimg {
+    margin-left: 40px;
+    margin-bottom: 60px;
+}
+.abu_p{
+    font-size: 25px;
+}
+.Смартфоны{
+    width: 182px;
+    height: 182px;
+    border-radius: 10px;
+    border: 1px solid #BCBCBC;
+    padding: 137px 52px 20px 50px;
+    text-align: center;
+    position: relative;
+}
+.Смартфоны a{
+    display: flex;
+    justify-content: space-between;
+    color: #2A1F20;
+    font-size: 14px;
+}
+.Смартфоны img{
+    width: 111px;
+    height: 102px;
+    position: absolute;
+    left: -12px;
+    top: 20px;
+}
+.Стиральные{
+    width: 182px;
+    height: 182px;
+    border-radius: 10px;
+    position: relative;
+    border: 1px solid #BCBCBC;
+    padding: 137px 52px 20px 50px;
+    text-align: center;
+}
+.Стиральные a{
+    display: flex;
+    justify-content: space-between;
+    color: #2A1F20;
+    font-size: 14px;
+}
+.Стиральные img{
+    width: 109px;
+    height: 136px;    
+    position: absolute;
+    left: -6px;
+    top: 2px;
+}
+.Пылесосы{
+    width: 182px;
+    height: 182px;
+    position: relative;
+    border-radius: 10px;
+    border: 1px solid #BCBCBC;
+    padding: 137px 52px 20px 50px;
+    text-align: center;
+}
+.Пылесосы a{
+    display: flex;
+    justify-content: space-between;
+    color: #2A1F20;
+    font-size: 14px;
+}
+.Пылесосы img{
+    width: 99px;
+    height: 99px;
+    position: absolute;
+    left: -8px;
+    top: 27px;
+}
+.Холодильники{
+    width: 182px;
+    position: relative;
+    height: 182px;
+    border-radius: 10px;
+    border: 1px solid #BCBCBC;
+    padding: 137px 52px 20px 50px;
+    text-align: center;
+}
+.Холодильники a{
+    display: flex;
+    justify-content: space-between;
+    color: #2A1F20;
+    font-size: 14px;
+}
+.Холодильники img{
+    width: 48px;
+    height: 100px;
+    position: absolute;
+    left: 31px;
+    top: 31px;
+}
+.Телевизоры{
+    width: 182px;
+    height: 182px;
+    border-radius: 10px;
+    border: 1px solid #BCBCBC;
+    position: relative;
+    padding: 137px 52px 20px 50px;
+    text-align: center;
+}
+.Телевизоры a{
+    display: flex;
+    justify-content: space-between;
+    color: #2A1F20;
+    font-size: 14px;
+}
+.Телевизоры img{
+    width: 180px;
+    height: 118px;
+    position: absolute;
+    left: -40px;
+    top: 22px;
+}
+.печи{
+    width: 182px;
+    height: 182px;
+    position: relative;
+    border-radius: 10px;
+    border: 1px solid #BCBCBC;
+    padding: 137px 52px 20px 50px;
+    text-align: center;
+}
+.печи a{
+    display: flex;
+    justify-content: space-between;
+    color: #2A1F20;
+    font-size: 14px;
+}
+.печи img{
+    width: 140px;
+    height: 138px;
+    position: absolute;
+    left: -18px;
+    top: 4px;
+}
+.abucategory {
+    display:flex;
+    gap:15px;
+    margin-left:40px;
+    margin-bottom:60px;
+    flex-wrap:wrap;
+}
+.card {
+    width: 287px;
+    height: 420px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 7.8px 0px #00000026;
+    border:1px solid #ffffff;
+}
+.h-100 {
+    width: 287px;
+    height: 415px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 7.8px 0px #00000026;
+    border: 1px solid #ffffff;
+    padding:20px;
+    margin-left: -34px;
+}
+.card-img{
+    width: 257px;
+    height: 170px;
+    margin-top: 34px;
+    margin-left: 15px;
+    margin-bottom:15px;
+}
+.cardverhp{
+    margin-left: 15px;
+    max-width: 257px;
+    width: 100%;
+    font-size: 17px;
+    color: #2A1F20;
+}
+.cardverh button{
+    margin-bottom:17px
+}
+.cardverhp1{
+    color:#FB0F40;
+    margin-left: 15px;
+    font-size:20px;
+}
+.tagname{
+    margin-left:15px;
+    color:#2A1F20;
+}
+.abu1{
+    width: 135px;
+    height: 37px;
+    margin-left: 10px;
+    border-radius: 10px;
+    background:#FB0F40;
+    box-shadow: 0px 6px 14.4px 0px #DC092E26;
+    border:none;
+}
+.pagination{
+    gap: 10px;
+    margin-left: 40px;
+    display: flex;
+    margin-top: 50px; 
+    margin-bottom:30px;
+}
+
+.pagination button{
+    padding:5px 25px;
+    border-radius:10px;
+    box-shadow: 0px 2px 7.8px 0px #00000026;
+    border: 1px solid #ffffff;
+}
+
+.list{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 78px;
+    margin-right: 52px;
+    margin-bottom: 15px;
+}
+/*  */
+.l {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.l1 {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.l1:hover {
+    color: #fff;
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.l:focus, .l:hover {
+    text-decoration: none;
+}
+
+.l:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
+}
+
+/*  */
+.btn {
+    display: inline-block;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    padding-left: 5.5px;
+    padding-top: 2.5px;
+    padding-bottom: 2px;
+}
+
+.btn.btn-warning {
+    border: 2px solid #ffc107; 
+    color: #ffc107; 
+    background-color: transparent; 
+}
+
+.btn.btn-danger {
+    border: 2px solid #dc3545;
+    color: #dc3545; 
+    background-color: transparent;
+}
+
+.btn.btn-warning:hover,
+.btn.btn-danger:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.btn i.fa-solid {
+    margin-right: 5px;
+}
+
+
+.abu1{
+    color:white;
+}
+.svgverh img{
+    width: 26px;
+    height: 22px;  
+}
+.svgverh{
+    display:flex;
+    gap:57px;
+    margin-top: 2px;
+    margin-left: 15px;
+}
+.cardverh1 {
+    display:flex;
+    gap:17px;
+    margin-left:40px;
+    flex-wrap:wrap; 
+    margin-bottom:10px;
+}
+.zip{
+    font-size:15px;
+    margin-bottom:20px;
+    color: #2A1F20;
+}
+.azip{
+    font-size:15px;
+    margin-bottom:15px;
+    color: #2A1F20;
+}
+.email{
+    position: relative;
+}
+.control{
+    border:none;
+    width: 256px;
+    height: 37px; 
+    padding-left: 15px;
+    border-radius: 10px 0px 0px 10px;
+}
+.email button{
+    width: 137px;
+    height: 37px;
+    border:none;
+    background: #FB0F40;
+    border-radius: 0px 10px 10px 0px;
+    color:white;
+    position: absolute;
+}
+.podpis{
+    margin-left: 93px;
+}
+.podpisp{
+    margin-bottom: 15px;
+    font-size: 15px;
+    color: #2A1F20;
+}
+.psa p{
+    width: 393px;
+    height: 32px;
+    font-size: 13px;
+    color: #2A1F20;
+    margin-bottom: 30px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+.psa span{
+    color:#FB0F40;
+}
+.my{
+    margin-bottom: 30px;
+}
+footer h1{
+    color:#646464;
+    width: 117px;
+    height: 18px;
+    top: 337px;
+    left: 100px;
+    font-size: 15px;
+    position:absolute;
+}
+.mb-4 {
+    font-size: 25px;
+    margin-bottom: 45px;
+    margin-left: 40px;
+    color: #2A1F20;
+}
+.mb-3 {
+    font-size: 25px;
+    margin-bottom: 45px;
+    margin-left: 40px;
+    color: #2A1F20;
+    display:block;
+}
+.form-control1{
+    padding-left:5px ;
+    padding-top: 5px;
+}
+.w-100 {
+    margin-left: 40px;
+    height:30px;
+    width: 93.5%;
+    background: green;
+    color: white;
+    border: none;
+    margin-bottom: 10px;
+}
+.as button{
+    padding: 3px 5px;
+    color:white;
+    background: #FB0F40;
+    border: none;
+    border-radius: 3px;
+}
+.ali2{
+    display:flex;
+}
+.description{
+    width: 346px;
+    line-height: 35px;
+    height: 350px;
+}
+.description a{
+    color:#FB0F40
+}
+.den {
+    margin-left:75px;
+}
+.butto {
+    display:flex;
+    gap:10px;
+    margin-bottom:15px;
+}
+.butto button{
+    width:5px;
+    height:5px;
+    margin-top:7.5px;
+    background:#FB0F40;
+    border:none;
+    border-radius:50px;
+}
+.geniyabu {
+    padding:20px;
+    box-shadow: 0px 2px 7.8px 0px #00000026;
+    width: 346px;
+    height: 311px;
+    border-radius: 10px;
+}
+.geniyabup {
+    color:#FB0F40;
+    font-size:36px;
+    margin-bottom:20px;
+}
+.geniyabu h1{
+    color: #2A1F20;
+    font-size:14px;
+    margin-bottom:20px;
+}
+.geniyabu button{
+    width: 308px;
+    height: 37px;
+    border-radius: 10px;
+    border:none;
+    color:white;
+    background:#FB0F40;
+    margin-bottom:20px;
+}
+.al{
+    display:flex;
+    gap:11px;
+    font-size:14px;
+    align-items:center;
+    margin-bottom:20px;
+}
+.al h2{
+    font-size:14px;
+    color:#2A1F20
+}
+.al span{
+    font-size:14px;
+    color:#FB0F40
+}
+
+.al1{
+    margin-bottom:30px;
+    display:flex;
+    gap:11px;
+    width: 257.19px;
+    height: 22.08px;
+    border: 1px;
+}
+.al1 span{
+    font-size:14px;
+    color:#FB0F40
+}
+.denimg {
+    margin-bottom:25px;
+
+}
+.as{
+    display: flex;
+    gap: 5px;
+    margin-left: 40px;
+    margin-bottom: 20px;
+}
+.text-center1 img{
+    width: 421px;
+    height: 421px;
+    margin-left: 35px;
+}
+.adf{
+    display: flex;
+    gap: 120px;
+}
+/* .menu__toggle {
+    opacity: 0;
+    display:none;
+}
+
+.menu__btn > span::before {
+    content: '';
+    top: -8px;
+}
+
+.menu__btn > span::after {
+    content: '';
+    top: 8px;
+}
+
+.menu__box {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 300px;
+    height: 100%;
+    padding: 80px 0;
+    list-style: none;
+    text-align: center;
+    background-color: #ECEFF1;
+    box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+    transition: left 0.3s ease;
+}
+.menu__item {
+    display: block;
+    padding: 12px 24px;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.menu__item:hover {
+    background-color: #CFD8DC;
+}
+    
+@media (max-width: 920px) {
+#menu__toggle:checked ~ .menu__btn > span {
+    transform: rotate(45deg);
+}
+
+#menu__toggle:checked ~ .menu__btn > span::before {
+    top: 0;
+    transform: rotate(0);
+}
+
+#menu__toggle:checked ~ .menu__btn > span::after {
+    top: 0;
+    transform: rotate(90deg);
+}
+
+#menu__toggle:checked ~ .menu__box {
+    left: 0;
+}
+
+.menu__btn {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #616161;
+    transition: transform 0.3s ease;
+}
+
+} */
+.hamburger-menu {
+    display: none;
+}
+.section {
+    padding: 80px 0;
+}
+.container {
+    width: 100%;
+    max-width: 1230px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+    /* Styling for the slick slider container */
+    #abucategory-slider {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    /* Styling for each slick slide item */
+    .slick-slide {
+        padding: 0 10px; /* Adjust spacing between slides */
+    }
+
+    /* Styling for category image */
+    .abu {
+        width: 100%; /* Adjust image width as needed */
+        height: auto; /* Ensure images maintain aspect ratio */
+    }
+
+    /* Styling for category name */
+    .categorypopulyarny {
+        display: block;
+        text-align: center;
+        margin-top: 10px; /* Adjust top margin as needed */
+        font-size: 18px; /* Adjust font size as needed */
+        color: #333; /* Adjust text color */
+        text-decoration: none;
+    }
+
+    /* Styling for slick arrows */
+    .slick-prev,
+    .slick-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
+        color: #333; /* Arrow color */
+        background-color: #fff; /* Arrow background color */
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    .slick-prev {
+        left: 10px; /* Adjust left position for previous arrow */
+    }
+
+    .slick-next {
+        right: 10px; /* Adjust right position for next arrow */
+    }
+
+    /* Styling for slick dots (optional) */
+    .slick-dots {
+        text-align: center;
+        margin-top: 20px; /* Adjust top margin for dots */
+    }
+
+    .slick-dots li {
+        display: inline-block;
+        margin: 0 5px;
+    }
+
+    .slick-dots li button {
+        font-size: 0;
+        background-color: #ccc; /* Dot color */
+        width: 10px; /* Dot width */
+        height: 10px; /* Dot height */
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .slick-dots li.slick-active button {
+        background-color: #333; /* Active dot color */
+    }
+
+    /* Media queries for responsiveness */
+    @media (max-width: 768px) {
+        .slick-slide {
+            padding: 0 5px; /* Adjust spacing for smaller screens */
+        }
+
+        .categorypopulyarny {
+            font-size: 16px; /* Adjust font size for smaller screens */
+        }
+    }
+
+    @media (max-width: 576px) {
+        .slick-slide {
+            padding: 0 3px; /* Further adjust spacing for extra small screens */
+        }
+
+        .categorypopulyarny {
+            font-size: 14px; /* Further adjust font size for extra small screens */
+        }
+    }
+
+
+@media(max-width:320px){
+    .formcontrol {
+        width: 270px;
+        height: 46px;
+    }
+    .header_input {
+        width: 270px;
+        height: 46px;
+    }
+    .header1 {
+        margin-left: 16px;
+    }
+    .menu {
+        display: none;
+    }
+    .header {
+        margin-bottom: 22.5px;
+    }
+    .headervectel {
+        margin-left: 16px;
+    }
+    .category {
+        display: none;
+        margin-left: 16px;
+    }
+    .abuk {
+        display: none;
+    }
+    .abul {
+        display: block;
+        width: 296px;
+        height: 236px;
+    }
+    .nenujnie {
+        display: none;
+    }
+    .cardverh1 {
+        gap: 7px;
+        margin-left: 16px;
+    }
+    .card {
+        width: 138px;
+        height: 271.5px;
+    }
+    .svgverh {
+        display: none;
+    }
+    .abu1 {
+        width: 115px;
+        height: 29px;
+        margin-left: 12px;
+    }
+    .card-img {
+        width: 120px;
+        height: 90px;
+        margin-top: 5px;
+        margin-left: 5px;
+        margin-bottom: 10px;
+    }
+    .group {
+        margin-left: 10px;
+    }
+    .tagname {
+        display: none;
+    }
+    .cardverhp {
+        font-size: 12.5px;
+        margin-bottom: 10px;
+    }
+    .cardverhp1 {
+        margin-bottom: 10px;
+        margin-left: 13px;
+    }
+    .svg1 {
+        display: flex;
+    }
+    .печи a {
+        display: flex;
+        justify-content: space-between;
+        color: #2A1F20;
+        font-size: 12px;
+        left: 10px;
+        margin-left: -40px;
+        margin-top: -18px;
+    }
+    .печи {
+        width: 109px;
+        height: 116px;
+        position: relative;
+        border-radius: 10px;
+        border: 1px solid #BCBCBC;
+        padding: 92px 52px 20px 50px;
+        text-align: center;
+    }
+    .печи img {
+        width: 74px;
+        height: 73px;
+        position: absolute;
+        left: -24px;
+    }    
+    .Телевизоры img {
+        width: 100px;
+        height: 58px;
+        position: absolute;
+        left: -37px;
+        top: 10px;
+    }
+    .Телевизоры a {
+        display: flex;
+        justify-content: space-between;
+        color: #2A1F20;
+        font-size: 12px;
+    }
+    .Телевизоры {
+        width: 109px;
+        height: 116px;
+        border-radius: 10px;
+        border: 1px solid #BCBCBC;
+        position: relative;
+        padding: 63px 61px 52px 21px;
+        text-align: center;
+    }
+    .Холодильники img {
+        width: 28px;
+        height: 57px;
+        position: absolute;
+        left: 0px;
+        top: 11px;
+    }
+    .Холодильники {
+        width: 109px;
+        position: relative;
+        height: 117px;
+        border-radius: 10px;
+        border: 1px solid #BCBCBC;
+        padding: 63px 20px 29px 15px;
+        text-align: center;
+    }
+    .Холодильники a {
+        display: flex;
+        justify-content: space-between;
+        color: #2A1F20;
+        font-size: 12px;
+    }
+    .Пылесосы img {
+        width: 49px;
+        height: 49px;
+        position: absolute;
+        left: -8px;
+        top: 14px;
+    }
+    .Пылесосы {
+        width: 109px;
+        height: 116px;
+        position: relative;
+        border-radius: 10px;
+        border: 1px solid #BCBCBC;
+        padding: 63px 17px 22px 23px;
+        text-align: center;
+    }
+    .Пылесосы img {
+        width: 49px;
+        height: 49px;
+        position: absolute;
+        left: -8px;
+        top: 14px;
+    }    
+    .Стиральные {
+        width: 109px;
+        height: 116px;
+        border-radius: 10px;
+        position: relative;
+        border: 1px solid #BCBCBC;
+        padding: 63px 0px 12px 0px;
+        text-align: center;
+    }
+    .Стиральные img {
+        width: 51px;
+        height: 66px;
+        position: absolute;
+        left: -9px;
+        top: 2px;
+    }
+    .Стиральные a{
+        font-size: 12px;
+    }
+    .Смартфоны img {
+        width: 55px;
+        height: 50px;
+        position: absolute;
+        left: -12px;
+        top: 10px;
+    }
+    .Смартфоны a {
+        display: flex;
+        justify-content: space-between;
+        color: #2A1F20;
+        font-size: 12px;
+    }
+    .Смартфоны {
+        width: 109px;
+        height: 116px;
+        border-radius: 10px;
+        border: 1px solid #BCBCBC;
+        padding: 63px 0px 25px 20px;
+        text-align: center;
+        position: relative;
+    }
+    .control {
+        border: none;
+        width: 195px;
+        height: 37px;
+        padding-left: 15px;
+        border-radius: 10px 0px 0px 10px;
+    }
+    .email button {
+        width: 90px;
+        height: 37px;
+        border: none;
+        background: #FB0F40;
+        border-radius: 0px 10px 10px 0px;
+        color: white;
+        position: absolute;
+    }
+    .psa p {
+        width: 226px;
+        height: 32px;
+        font-size: 13px;
+        color: #2A1F20;
+        margin-bottom: 30px;
+        margin-top: 15px;
+        margin-bottom: 30px;
+    }
+}
+.svg1 {
+    display: none;
+}
+.group button{
+    width: 6px;
+    height: 6px;
+    border-radius: 500px;  
+    border: none;
+}
+.group {
+    margin-left: 15px;
+}
+.ap {
+    background: #FB0F40;
+}
+.at {
+    background: #D3D2D2;
+}
+.abul {
+    display: none;
+}

@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% comment %} 3) {% endcomment %}
+{% load static %}
+
+{% block title %}| Update News "{{ pradact.name }}"{% endblock title %}
+
+{% block content %}
+
+    <h3 class="mb-4">Update news "{{ pradact.name }}"</h3>
+
+    <form action="{% url 'ubdate_pradact' id=pradact.id %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <div>
+            <button type="submit" class="btn btn-success w-100">Save</button>
+        </div>
+        
+
+    </form>
+
+{% endblock content %} 
+{% comment %} 1) {% endcomment %}
+ {% comment %} {% extends 'base.html' %}
+{% load static %}
+{% load custom_tags %}
+{% get_categories as categories %}
+{% block title %}| Ubdate Pradact{% endblock title %}
+
+{% block content %}
+
+    <h3 class="mb-3">Ubdate Pradact</h3>
+
+    <form action="{% url 'ubdate_pradact' id=pradact.id  %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="pradact_name">Название</label>
+            <input id="pradact_name" type="text" class="form-control" placeholder="Название" value="{{ pradact.name }}" name="name" required >
+        </div>
+
+        <div class="mb-3">
+            <label for="">Изображение</label>
+            <input type="file" class="form-control" name="image" required >
+        </div>
+        <div class="mb-3">
+            <label for="pradact_price">price</label>
+            <input id="pradact_price" type="number" value="{{ pradact.price }}" class="form-control" placeholder="сколка сом" name="price" required >
+        </div>
+        <div class="mb-3">
+            <label for="">Описание<br></label>
+            <textarea name="description" class="form-control1" required rows="8" cols="100" placeholder="Описание">{{ pradact.description }}</textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="">Категории</label>
+            <select class="form-select" name="category" required>
+                <option selected disabled>Выберите категорию</option>
+                {% for category in categories %}    
+                    <option value="{{ category.id }}" {% if pradact.category == category %}selected{% endif %}>{{ category.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="">Теги</label>
+            <select class="form-select" name="tags" multiple required>
+                <option disabled>Выберите несколько тегов</option>
+                {% for tag in tags %}    
+                    <option value="{{ tag.id }}" {% if tag in pradact.tags.all %}selected{% endif %}>{{ tag.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="pradact_is_pub">Публичность</label>
+            <input id="pradact_is_pub" {% if pradact.is_published %}checked{% endif %} type="checkbox" name="is_published">
+        </div>
+        <div>
+            <button type="submit" class="btn btn-success w-100">Create</button>
+        </div>
+
+    </form>
+
+{% endblock content %} {% endcomment %}
