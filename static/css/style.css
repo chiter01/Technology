@@ -1080,3 +1080,56 @@ footer h1{
 .abul {
     display: none;
 }
+.nav-item {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.nav-link {
+    color: #343a40; 
+    font-size: 16px;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: #007bff; 
+    background-color: #f8f9fa; 
+    border-radius: 5px; 
+}
+
+.dropdown-menu {
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-item {
+    color: #343a40;
+    padding: 10px 15px;
+    text-decoration: none;
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa; 
+    color: #007bff; 
+    border-radius: 5px; 
+}
+
+.nav-link.dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 0.5em;
+    vertical-align: 0.2em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+    transform: rotate(45deg);
+}
+
+.nav-link.active {
+    color: #007bff;
+    font-weight: bold;
+}

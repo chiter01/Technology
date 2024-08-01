@@ -1,8 +1,10 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from django.core.paginator import Paginator
 from pprint import pprint
-from workspace.forms import PradactForm, PradactModelForm
+from workspace.forms import LoginForm, PradactForm, PradactModelForm
 from pradact.models import Category, Pradact, Tag
+from django.contrib.auth import authenticate, login, logout
+
 
 # 3)
 # def workspace(request):
@@ -50,7 +52,7 @@ from pradact.models import Category, Pradact, Tag
 
 # 2)
 def workspace(request):
-    pradact = Pradact.objects.all().order_by('-date', 'name')
+    pradact = Pradact.objects.all()
     page = int(request.GET.get('page', 1))
     page_size = int(request.GET.get('page_size', 4))
  
@@ -60,7 +62,7 @@ def workspace(request):
     return render(request, 'workspace/index.html', {'pradact': pradact})
 
 
-def create_news(request):
+def create_pradact(request):
     form = PradactForm()
 
     if request.method == 'POST':
@@ -84,10 +86,8 @@ def ubdate_pradact(request, id):
     if request.method == 'POST':
         pradact.name = request.POST.get('name')
         pradact.description = request.POST.get('description')
-        pradact.content = request.POST.get('content')
-        pradact.author = request.POST.get('author')
         pradact.is_published = request.POST.get('is_published') == 'on'
-       
+        pradact.price = request.POST.get('price')
 
         category_id = int(request.POST.get('category'))
         pradact.category = Category.objects.get(id=category_id)
@@ -206,3 +206,36 @@ def ubdate_pradact(request, id):
 #     tags = Tag.objects.all()
 #     return render(request, 'workspace/ubdate_pradact.html', {'categories': categories, 'tags': tags,'pradact':pradact})
 # # Create your views here.
+
+def login_profile(request):
+    if request.user.is_authenticated:
+        return redirect('/workspace/')
+    
+    form = LoginForm()
+
+    if request.method == 'POST':
+        form = LoginForm(data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user:
+                login(request, user)   
+                return redirect('/workspace/') 
+            
+
+            message = 'The user does not exist or the password is incorrect.'
+            return render(request, 'auth/login.html', {'form': form, 'message': message})
+
+
+    return render(request, 'auth/login.html', {'form': form})
+
+
+def logout_profile(request):
+    if request.user.is_authenticated:
+        logout(request)
+    
+    return redirect('/workspace/')
+    
+
+
