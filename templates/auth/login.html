@@ -12,57 +12,128 @@
         margin: 0;
         padding: 0;
     }
-#login_form {
-    padding: 20px;
+    /* Центрирование содержимого по вертикали и горизонтали */
+.d-flex {
+    display: flex;
 }
-
-#login_form h4 {
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-#login_form input {
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    padding: 10px;
+.oldi {
+    display: block;
     width: 100%;
-    box-sizing: border-box;
-}
-
-#login_form button {
-    border-radius: 5px;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    font-size: 16px;
+    padding: .375rem .75rem; /* Это стандартное значение для кнопок, может быть скорректировано */
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    background-color: #007bff; /* Цвет кнопки по умолчанию для .btn-primary */
+    color: #fff; /* Цвет текста кнопки */
+    border: 1px solid transparent;
+    border-radius: .25rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  }
+  
+  .oldi:hover {
+    background-color: #0056b3; /* Цвет кнопки при наведении */
+    border-color: #004085;
+  }
+  
+.justify-content-center {
+    justify-content: center;
 }
 
-#login_form button:hover {
-    background-color: #0056b3;
+.align-items-center {
+    align-items: center;
 }
 
+/* Минимальная высота для центрирования */
+[style*="min-height: 80vh"] {
+    min-height: 80vh;
+}
+
+/* Стили для карточки */
+.card1 {
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* Стили для содержимого карточки */
+.card-body {
+    padding: 1.25rem;
+}
+
+/* Отступ снизу для элементов формы */
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
+
+/* Стили для меток формы */
+label {
+    display: block;
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+/* Стили для полей формы */
+input[type="text"], input[type="password"] {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+}
+
+/* Стили для ошибок формы */
 .text-danger {
-    font-size: 14px;
-    margin-top: 5px;
+    color: #dc3545;
 }
 
-.card {
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+/* Стили для кнопки отправки формы */
+
+.btn-primary:hover {
+    color: #ffffff;
+    background-color: #0056b3;
+    border-color: #004085;
 }
 
-.text-danger.text-center {
-    font-size: 16px;
-    margin-top: 10px;
+.d-block {
+    display: block;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+/* Стили для сообщений ошибок */
+.mt-4 {
+    margin-top: 1.5rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Иконка для сообщений */
+.fa-circle-exclamation {
+    margin-right: 0.5rem;
 }
 
 </style>
 
 <div class="d-flex justify-content-center align-items-center" style="min-height: 80vh">
-    <div class="card" style="min-width: 400px">
+    <div class="card1" style="min-width: 400px">
         <div class="card-body">
             <form action="{% url 'login' %}" id="login_form" method="POST" novalidate>
                 {% csrf_token %}

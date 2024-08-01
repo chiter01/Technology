@@ -72,8 +72,8 @@ nav a{
 }
 .category {
     display: flex;
-    gap: 27px;
-    margin-left:281px;
+    gap: 0px;
+    margin-left: 84px;
 }
 header{
     margin-bottom:45px;
