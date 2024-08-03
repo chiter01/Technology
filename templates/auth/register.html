@@ -16,111 +16,120 @@
 
 </style> {% endcomment %}
 <style>
+    /* Container for centering the form */
+.d-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust height as needed */
+}
+
+.card1 {
+    max-width: 700px; /* Adjust max-width for larger screens */
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card1-body {
+    padding: 2rem;
+    background-color: #f8f9fa;
+    border: 1px solid #e3e6f0;
+}
+
+/* Form styling */
+#form {
+    margin: auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    box-sizing: border-box;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: #80bdff;
+    outline: none;
+    box-shadow: 0 0 0 .2rem rgba(38, 143, 255, .25);
+}
+
+#form ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    color: red;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #0069d9;
+}
+
+.ali {
+
+    height: 31.5px;
+    width: 99.5%;
+    background: green;
+    color: white;
+    border: none;
+    margin-bottom: 10px;
+    background-color: #2bb0cb; /* Green */
+    border: none;
+    color: white;
+    border-radius:3px;
+    padding: 8px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .card1 {
+        width: 100%;
+    }
+    
     #form {
-        max-width: 500px;
-        margin: auto;
+        padding: 0 1rem;
     }
+}
 
-    #form .card {
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    #form .card-body {
-        padding: 2rem;
-    }
-
-    #form .form-group {
-        margin-bottom: 1.5rem;
-    }
-
-    #form .form-group label {
-        display: block;
-        margin-bottom: 0.5rem;
-        font-weight: bold;
-    }
-
-    #form .form-group input,
-    #form .form-group select,
-    #form .form-group textarea {
-        width: 100%;
-        padding: 0.75rem;
-        border: 1px solid #ced4da;
-        border-radius: 0.25rem;
-        box-sizing: border-box;
-    }
-
-    #form .form-group input:focus,
-    #form .form-group select:focus,
-    #form .form-group textarea:focus {
-        border-color: #80bdff;
-        outline: none;
-    }
-
-    #form ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        color: red;
-    }
-    .form-control {
-        display: block;
-        width: 100%;
-        height: calc(1.5em + .75rem + 2px);
-        padding: .75rem 1.25rem;
-        font-size: 1rem;
-        font-weight: 400;
-        line-height: 1.5;
-        color: #495057;
-        background-color: #fff;
-        background-clip: padding-box;
-        border: 1px solid #ced4da;
-        border-radius: .25rem;
-        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-    }
-
-    .form-control:focus {
-        color: #495057;
-        background-color: #fff;
-        border-color: #80bdff;
-        outline: 0;
-        box-shadow: 0 0 0 .2rem rgba(38, 143, 255, .25);
-    }
-    #form button {
-        padding: 0.75rem;
-        border: none;
-        border-radius: 0.25rem;
-        cursor: pointer;
-        transition: background-color 0.2s ease;
-    }
-
-    #form button:hover {
-        background-color: #0056b3;
-    }
-
-    #form button:active {
-        background-color: #004085;
-    }
-
-    @media (max-width: 768px) {
-        #form {
-            padding: 0 1rem;
-        }
-
-        #form .card {
-            width: 100%;
-        }
-    }
 </style>
-<div class="d-flex justify-content-center align-items-center" style="min-height: 80vh">
-    <div class="card" style="min-width: 700px">
-        <div class="card-body">
+<div class="d-flex justify-content-center align-items-center" style="height: 482px;">
+    <div class="card1" style="min-width: 700px">
+        <div class="card1-body">
             <form action="{% url 'register' %}" id="form" method="POST" novalidate>
                 {% csrf_token %}
                 {{ form.as_p  }}
-                <div>
-                    <button type="submit" class="btn btn-primary d-block w-100">Register</button>
-                </div>
+                    <button type="submit" class="ali">Register</button>
             </form>
         </div>
     </div>
