@@ -3,6 +3,12 @@ from django import forms
 from django.contrib.auth.forms import AuthenticationForm
 
 from pradact.models import Category, Pradact, Tag
+from typing import Any
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.models import User
+from django.contrib.auth.password_validation import validate_password
+from django.contrib.auth.hashers import make_password
+
 # 2)
 class PradactForm(forms.Form):
     name = forms.CharField(label='Название', widget=forms.TextInput(attrs={
@@ -106,3 +112,66 @@ class LoginForm(forms.Form):
         strip=False,
         widget=forms.PasswordInput(attrs={"autocomplete": "current-password", 'class': 'form-control'}),
     )
+    
+
+class RegisterForm(forms.ModelForm):
+
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['first_name'].required = True 
+        self.fields['last_name'].required = True 
+        self.fields['email'].required = True 
+
+
+    password1 = forms.CharField(label='Придумайте пароль', validators=[validate_password], widget=forms.PasswordInput(attrs={
+        'class': 'form-control'
+    }))
+
+    password2 = forms.CharField(label='Подтвердите пароль', widget=forms.PasswordInput(attrs={
+        'class': 'form-control'
+    }))
+
+
+
+    class Meta:
+        model = User
+        # fields = '__all__'
+        exclude = (
+            'password', 
+            'is_superuser', 
+            'is_staff',
+            'is_active',
+            'user_permissions', 
+            'groups', 
+            'last_login', 
+            'date_joined'
+            )
+        
+        # labels = {
+        #     'username': 'sdfsd'
+        # }
+
+
+        widgets = {
+            'username': forms.TextInput(attrs={'class': 'form-control'}),
+            'first_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'email': forms.TextInput(attrs={'class': 'form-control'}),
+        }
+    
+    
+    def clean(self):
+       
+        cleaned_data = super().clean()
+        
+        password1 = cleaned_data.pop('password1')
+        password2 = cleaned_data.pop('password2')
+
+        if password1 != password2:
+            raise forms.ValidationError({'password2': ['The passwords dont\'t match.']})
+        
+        password = make_password(password1)
+        cleaned_data.setdefault('password', password)
+
+        return cleaned_data

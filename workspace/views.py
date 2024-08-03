@@ -1,9 +1,9 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from django.core.paginator import Paginator
 from pprint import pprint
-from workspace.forms import LoginForm, PradactForm, PradactModelForm
+from workspace.forms import LoginForm, PradactForm, PradactModelForm , RegisterForm
 from pradact.models import Category, Pradact, Tag
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login, logout 
 
 
 # 3)
@@ -238,4 +238,22 @@ def logout_profile(request):
     return redirect('/workspace/')
     
 
+def register(request):
+    if request.user.is_authenticated:
+        return redirect('/workspace/')
+    
+    form = RegisterForm()
+
+    
+    if request.method == 'POST':
+        form = RegisterForm(data=request.POST)
+        
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('/workspace/')
+    
+
+    return render(request, 'auth/register.html', {'form': form})
+ 
 
