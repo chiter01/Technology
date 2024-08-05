@@ -66,8 +66,9 @@
         {% for item in pradact %}
             <div class="card">
                 <div class="cardverh">
-                    <div class="svg1"><img src="../static/svg/serdsa.svg"alt=""></div>
-                    <img src="{{ item.image.url }}" class="card-img" alt="...">
+                    <div class="svg1">
+                        <img src="../static/svg/serdsa.svg"alt=""></div>
+                        <img src="{{ item.image.url }}" class="card-img" alt="...">
                     <div class="group">
                         <button class="ap"></button>
                         <button class="at"></button>
@@ -80,6 +81,9 @@
                             <a class="tagname" href="#">{{ tag.name }}</a> 
                     {%  endfor %}
                     <p class="cardverhp1">{{ item.price }} <span>som</span></p>
+                    <p>
+                        {{ item.views }} - {{ item.author.first_name }} {{ item.author.last_name }}
+                    </p>
                     <a href="{% url 'detail_pradact' id=item.id %}" class="primary"><button class="abu1">View</button></a>
                     <div class="svgverh">
                         <img class="svg" src="../static/svg/serdsa.svg"alt="">

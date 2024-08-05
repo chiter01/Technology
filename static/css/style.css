@@ -271,15 +271,15 @@ header{
     flex-wrap:wrap;
 }
 .card {
-    width: 227px;
-    height: 420px;
+    width: 257px;
+    height: 100%;
     border-radius: 10px;
     box-shadow: 0px 2px 7.8px 0px #00000026;
     border: 1px solid #ffffff;
+    padding-bottom:20px;
 }
 .h-100 {
     width: 287px;
-    height: 415px;
     border-radius: 10px;
     box-shadow: 0px 2px 7.8px 0px #00000026;
     border: 1px solid #ffffff;
@@ -287,11 +287,9 @@ header{
     margin-left: -34px;
 }
 .card-img {
-    width: 257px;
+    max-width: 257px;
     height: 170px;
-    margin-top: 34px;
-    margin-left: -7px;
-    margin-bottom: 15px;
+    border-radius: 10px 10px 0px 0px;
 }
 .cardverhp{
     margin-left: 15px;
@@ -425,7 +423,7 @@ header{
 }
 .svgverh{
     display:flex;
-    gap:57px;
+    gap:75px;
     margin-top: 2px;
     margin-left: 15px;
 }
@@ -435,6 +433,10 @@ header{
     margin-left:40px;
     flex-wrap:wrap; 
     margin-bottom:10px;
+    max-height: 100%;
+}
+.cardverh1 p{
+    margin-left:15px;
 }
 .zip{
     font-size:15px;
@@ -1083,6 +1085,7 @@ footer h1{
 .nav-item {
     margin-left: 15px;
     margin-right: 15px;
+    top: 8px;
 }
 
 .nav-link {

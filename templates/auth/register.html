@@ -25,7 +25,7 @@
 }
 
 .card1 {
-    max-width: 700px; /* Adjust max-width for larger screens */
+    max-width: 700px; 
     width: 100%;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -35,6 +35,9 @@
     padding: 2rem;
     background-color: #f8f9fa;
     border: 1px solid #e3e6f0;
+    display:flex;
+    flex-direction:column;
+     row-gap:20px;
 }
 
 /* Form styling */
@@ -91,9 +94,9 @@
 }
 
 .ali {
-
-    height: 31.5px;
-    width: 99.5%;
+    border-radius: 0.25rem;
+    height: 40px;
+    width: 100%;
     background: green;
     color: white;
     border: none;
@@ -101,13 +104,11 @@
     background-color: #2bb0cb; /* Green */
     border: none;
     color: white;
-    border-radius:3px;
-    padding: 8px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
+    margin: 10px 0px;
     cursor: pointer;
 }
 
@@ -123,7 +124,7 @@
 }
 
 </style>
-<div class="d-flex justify-content-center align-items-center" style="height: 482px;">
+<div class="d-flex justify-content-center align-items-center" style="height: 482px; margin-bottom: 30px;">
     <div class="card1" style="min-width: 700px">
         <div class="card1-body">
             <form action="{% url 'register' %}" id="form" method="POST" novalidate>

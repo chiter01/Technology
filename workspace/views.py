@@ -1,10 +1,12 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from django.core.paginator import Paginator
 from pprint import pprint
-from workspace.forms import LoginForm, PradactForm, PradactModelForm , RegisterForm
 from pradact.models import Category, Pradact, Tag
-from django.contrib.auth import authenticate, login, logout 
-
+from workspace.decorators import is_owner
+from workspace.forms import LoginForm, PradactForm, PradactModelForm, RegisterForm
+from pprint import pprint
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 # 3)
 # def workspace(request):
@@ -51,6 +53,7 @@ from django.contrib.auth import authenticate, login, logout
 #     })
 
 # 2)
+@login_required(login_url='/workspace/login/')
 def workspace(request):
     pradact = Pradact.objects.all()
     page = int(request.GET.get('page', 1))
@@ -61,7 +64,7 @@ def workspace(request):
 
     return render(request, 'workspace/index.html', {'pradact': pradact})
 
-
+@login_required(login_url='/workspace/login/')
 def create_pradact(request):
     form = PradactForm()
 
@@ -73,13 +76,15 @@ def create_pradact(request):
          
     return render(request, 'workspace/create_pradact.html', {'form': form})
 
-
+@login_required(login_url='/workspace/login/')
+@is_owner
 def delete_pradact(request, id):
     pradact = get_object_or_404(Pradact, id=id)
     pradact.delete()
     return redirect('/workspace/')
 
-
+@login_required(login_url='/workspace/login/')
+@is_owner
 def ubdate_pradact(request, id):
     pradact = get_object_or_404(Pradact, id=id)
 
@@ -221,7 +226,7 @@ def login_profile(request):
             user = authenticate(username=username, password=password)
             if user:
                 login(request, user)   
-                return redirect('/workspace/') 
+                return redirect('/pradact/') 
             
 
             message = 'The user does not exist or the password is incorrect.'
@@ -235,7 +240,7 @@ def logout_profile(request):
     if request.user.is_authenticated:
         logout(request)
     
-    return redirect('/workspace/')
+    return redirect('/')
     
 
 def register(request):

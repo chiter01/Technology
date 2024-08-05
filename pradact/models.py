@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 
 class Pradact(models.Model):
@@ -13,6 +13,8 @@ class Pradact(models.Model):
     tags = models.ManyToManyField('pradact.Tag', related_name='pradact', verbose_name='теги')
     description = models.CharField(verbose_name='описание', max_length=300)
     price = models.PositiveIntegerField(verbose_name='сом', default=0)
+    views = models.PositiveIntegerField(verbose_name='просмотры', default=0)
+    author = models.ForeignKey('auth.User', on_delete=models.CASCADE, related_name='news', verbose_name='автор')
     is_published = models.BooleanField(verbose_name='публичность', default=True)
 class Category(models.Model):
 

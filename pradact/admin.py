@@ -12,6 +12,7 @@ class PradactAdmin(admin.ModelAdmin):
         'name', 
         'category', 
         'get_image',
+        'author',
         'is_published' ,
     )
     list_display_links = ('id', 'name')
@@ -20,11 +21,14 @@ class PradactAdmin(admin.ModelAdmin):
         'name', 
         'tags__name', 
         'category__name',
+        'author__first_name',
+        'author__last_name',
     )
     list_editable = ('is_published',)
-    list_filter = ('tags','is_published', 'category',)
+    list_filter = ('tags','is_published', 'category','author')
 
     readonly_fields = (
+        'views',
         'get_full_image',
     )
 
