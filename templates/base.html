@@ -30,11 +30,13 @@
 </head>
 <body>
     {% include 'components/nav.html' %}
+    <main class="container">
+    {% include 'components/messages.html' %}
+        
     {% block content %}
-        <main class="container">
-        </main>
+        
     {% endblock content %}
-
+</main>
     {% include 'components/footer.html' %}
 
     <script src="{% static 'js/script.js' %}"></script>

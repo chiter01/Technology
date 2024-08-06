@@ -11,6 +11,13 @@
 {% comment %}3){% endcomment %}
 
 {% block content %}
+<style>
+  ul {
+      list-style: none;
+      padding: 0;
+      color: red;
+  }
+</style>
   <h3 class="mb-4">Create pradact</h3>
 
   <form action="{% url 'create_pradact' %}" method="POST" enctype="multipart/form-data" novalidate>

@@ -7,7 +7,7 @@ from workspace.forms import LoginForm, PradactForm, PradactModelForm, RegisterFo
 from pprint import pprint
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-
+from django.contrib import messages
 # 3)
 # def workspace(request):
 #     pradact = Pradact.objects.all()
@@ -83,46 +83,25 @@ def delete_pradact(request, id):
     pradact.delete()
     return redirect('/workspace/')
 
+
 @login_required(login_url='/workspace/login/')
 @is_owner
-def ubdate_pradact(request, id):
+def update_pradact(request, id):
     pradact = get_object_or_404(Pradact, id=id)
+    form = PradactModelForm(instance=pradact)
 
     if request.method == 'POST':
-        pradact.name = request.POST.get('name')
-        pradact.description = request.POST.get('description')
-        pradact.is_published = request.POST.get('is_published') == 'on'
-        pradact.price = request.POST.get('price')
+        form = PradactModelForm(data=request.POST, files=request.FILES, instance=pradact)
 
-        category_id = int(request.POST.get('category'))
-        pradact.category = Category.objects.get(id=category_id)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'The news "{pradact.name}" has been successfully updated!')
+            return redirect('/workspace/')
 
-        tag_ids = list(map(int, request.POST.getlist('tags')))
-        tags = Tag.objects.filter(id__in=tag_ids)
-
-        pradact.tags.clear()
-        pradact.tags.add(*tags)
-
-        image = request.FILES.get('image')
-
-        if image:
-            pradact.image.save(image.name, image)
-
-        pradact.save()
-       
-        
-        return redirect('/workspace/')
-
-    
-    categories = Category.objects.all()
-    tags = Tag.objects.all()
-    
-    return render(request, 'workspace/ubdate_pradact.html', {
-        'categories': categories, 
-        'tags': tags,
+    return render(request, 'workspace/update_news.html', {
         'pradact': pradact,
+        'form': form,
     })
-
 
 
 # 1)
@@ -211,7 +190,6 @@ def ubdate_pradact(request, id):
 #     tags = Tag.objects.all()
 #     return render(request, 'workspace/ubdate_pradact.html', {'categories': categories, 'tags': tags,'pradact':pradact})
 # # Create your views here.
-
 def login_profile(request):
     if request.user.is_authenticated:
         return redirect('/workspace/')
@@ -226,7 +204,8 @@ def login_profile(request):
             user = authenticate(username=username, password=password)
             if user:
                 login(request, user)   
-                return redirect('/pradact/') 
+                messages.success(request, f'Welcome "{user.get_full_name()}"')
+                return redirect('/workspace/') 
             
 
             message = 'The user does not exist or the password is incorrect.'
@@ -236,29 +215,28 @@ def login_profile(request):
     return render(request, 'auth/login.html', {'form': form})
 
 
+
 def logout_profile(request):
     if request.user.is_authenticated:
         logout(request)
     
-    return redirect('/')
-    
+    messages.success(request, f'Good bye!')
+    return redirect('/') 
 
 def register(request):
     if request.user.is_authenticated:
         return redirect('/workspace/')
     
     form = RegisterForm()
-
-    
     if request.method == 'POST':
         form = RegisterForm(data=request.POST)
         
         if form.is_valid():
             user = form.save()
             login(request, user)
+            messages.success(request, f'Welcome "{user.get_full_name()}"')
             return redirect('/workspace/')
-    
-
+        
+        messages.error(request, f'Fix some errors below!')
     return render(request, 'auth/register.html', {'form': form})
- 
-
+    
